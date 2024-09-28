@@ -4,7 +4,8 @@ import QRCode from 'qrcode';  // Importiere die QRCode-Bibliothek
 import { QRCodeErrorCorrectionLevel } from 'qrcode'; // Import the type from the 'qrcode' library
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { NavbarComponent } from './navbar/navbar.component';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,7 +15,7 @@ import { IconsClass } from './icons.class';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule],
+  imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, NavbarComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   providers: [IconsClass]
