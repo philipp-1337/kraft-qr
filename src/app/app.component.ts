@@ -39,7 +39,7 @@ import { IconsClass } from './icons.class';
 export class AppComponent implements AfterViewInit {
 
   qrData = 'https://example.com';  // Default QR Code data
-  qrSize = 256;  // Default size
+  qrSize = 512;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
   colorDark = '#ffb787';  // Default dark color

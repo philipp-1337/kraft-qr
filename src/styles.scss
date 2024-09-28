@@ -18,8 +18,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     border: solid 1px !important;
 
     canvas {
-      max-width: 512px;
-      max-height: 512px;
+      max-width: calc(100vw - 65px);
+      max-height: calc(100vw - 65px);
     }
   
     &:last-child {
