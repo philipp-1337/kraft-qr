@@ -32,18 +32,18 @@
         
         <mat-form-field>
           <mat-label>Vordergrund Farbe</mat-label>
-          <input matInput [(ngModel)]="colorDark" (ngModelChange)="generateQRCode()" [mtxColorpicker]="picker" format="hex">
-          <mtx-colorpicker-toggle matSuffix [for]="picker"></mtx-colorpicker-toggle>
-          <mtx-colorpicker #picker></mtx-colorpicker>
+          <input matInput [(ngModel)]="colorDark" (ngModelChange)="generateQRCode()" [mtxColorpicker]="pickerDark" format="hex">
+          <mtx-colorpicker-toggle matSuffix [for]="pickerDark"></mtx-colorpicker-toggle>
+          <mtx-colorpicker #pickerDark></mtx-colorpicker>
           <!-- <mat-hint>Choose your favorite color</mat-hint>
           <mat-error>Please enter the color</mat-error> -->
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Hintergrund Farbe</mat-label>
-          <input matInput [(ngModel)]="colorLight" (ngModelChange)="generateQRCode()" [mtxColorpicker]="picker" format="hex">
-          <mtx-colorpicker-toggle matSuffix [for]="picker"></mtx-colorpicker-toggle>
-          <mtx-colorpicker #picker></mtx-colorpicker>
+          <input matInput [(ngModel)]="colorLight" (ngModelChange)="generateQRCode()" [mtxColorpicker]="pickerLight" format="hex">
+          <mtx-colorpicker-toggle matSuffix [for]="pickerLight"></mtx-colorpicker-toggle>
+          <mtx-colorpicker #pickerLight></mtx-colorpicker>
           <!-- <mat-hint>Choose your favorite color</mat-hint>
           <mat-error>Please enter the color</mat-error> -->
         </mat-form-field>
