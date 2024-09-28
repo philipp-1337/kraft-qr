@@ -14,17 +14,15 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 })
 export class AppComponent implements AfterViewInit {
   title = 'kraft-qr';
-  qrData: string = 'https://example.com';  // Default QR Code data
-  qrSize: number = 256;  // Default size
+  qrData = 'https://example.com';  // Default QR Code data
+  qrSize = 256;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
-  colorDark: string = '#000000';  // Default dark color
-  colorLight: string = '#ffffff00';  // Default light color
+  colorDark = '#000000';  // Default dark color
+  colorLight = '#ffffff00';  // Default light color
 
   @ViewChild('canvasElement', { static: false })
   canvasElement!: ElementRef<HTMLCanvasElement>;
-
-  constructor() { }
 
   ngAfterViewInit() {
     this.generateQRCode();  // Generate QR Code on component init
