@@ -22,15 +22,15 @@ import { IconsClass } from './icons.class';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet, 
-    FormsModule, 
-    MatIconModule, 
-    MatButtonModule, 
-    MatCardModule, 
-    MatFormFieldModule, 
-    MatSelectModule, 
-    MatInputModule, 
-    MtxColorpickerModule, 
+    RouterOutlet,
+    FormsModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MtxColorpickerModule,
     NavbarComponent
   ],
   templateUrl: './app.component.html',
@@ -50,7 +50,7 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     public icons: IconsClass,
-  ) {}
+  ) { }
 
   ngAfterViewInit() {
     this.generateQRCode();  // Generate QR Code on component init

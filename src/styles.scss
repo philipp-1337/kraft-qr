@@ -51,6 +51,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   mat-form-field {
     width: 100%;
   }
+
+  .mat-mdc-card-header-text {
+    margin-bottom: 16px; // Standardmäßig margin-bottom hinzufügen
+  }
   
   .mat-mdc-snack-bar-handset {
     margin-bottom: env(safe-area-inset-bottom) !important;
