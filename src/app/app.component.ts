@@ -9,24 +9,41 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+
+import { MtxColorpickerModule } from '@ng-matero/extensions/colorpicker';
 
 import { IconsClass } from './icons.class';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, NavbarComponent],
+  imports: [
+    RouterOutlet, 
+    FormsModule, 
+    MatIconModule, 
+    MatButtonModule, 
+    MatCardModule, 
+    MatFormFieldModule, 
+    MatSelectModule, 
+    MatInputModule, 
+    MtxColorpickerModule, 
+    NavbarComponent
+  ],
   templateUrl: './app.component.html',
   providers: [IconsClass]
 })
 export class AppComponent implements AfterViewInit {
-  title = 'kraft-qr';
+
   qrData = 'https://example.com';  // Default QR Code data
   qrSize = 256;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
-  colorDark = '#000000';  // Default dark color
-  colorLight = '#ffffff00';  // Default light color
+  colorDark = '#ffb787';  // Default dark color
+  colorLight = '#004f4f';  // Default light color
 
   @ViewChild('canvasElement', { static: false })
   canvasElement!: ElementRef<HTMLCanvasElement>;

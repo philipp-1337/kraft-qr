@@ -6,44 +6,58 @@
         <div class="icon-avatar" mat-card-avatar>
           <mat-icon svgIcon="qr-code"></mat-icon>
         </div>
-        <mat-card-title>Ablaufplan</mat-card-title>
-        <mat-card-subtitle>26.07.2024 - 28.07.2024</mat-card-subtitle>
+        <mat-card-title>QR Code erstellen</mat-card-title>
+        <mat-card-subtitle>Keine Werbung | Kein Login | Kein Bullshit</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
-        <div>
-          <label for="qrData">QR Code Data:</label>
-          <input id="qrData" [(ngModel)]="qrData" (ngModelChange)="generateQRCode()" placeholder="Enter data for QR Code" />
-    
-          <label for="qrSize">Size (pixels):</label>
-          <input id="qrSize" type="number" [(ngModel)]="qrSize" (ngModelChange)="generateQRCode()" />
-    
-          <label for="errorCorrectionLevel">Error Correction Level:</label>
-          <select id="errorCorrectionLevel" [(ngModel)]="errorCorrectionLevel" (ngModelChange)="generateQRCode()">
-            <option value="L">Low (7%)</option>
-            <option value="M">Medium (15%)</option>
-            <option value="Q">Quartile (25%)</option>
-            <option value="H">High (30%)</option>
-          </select>
-    
-          <label for="colorDark">Dark Color:</label>
-          <input id="colorDark" [(ngModel)]="colorDark" (ngModelChange)="generateQRCode()" placeholder="e.g., #000000" />
-    
-          <label for="colorLight">Light Color:</label>
-          <input id="colorLight" [(ngModel)]="colorLight" (ngModelChange)="generateQRCode()"
-            placeholder="e.g., #ffffff00" />
-    
+        <mat-form-field>
+          <mat-label>QR Code Daten (Text, URL, etc)</mat-label>
+          <input matInput [(ngModel)]="qrData" (ngModelChange)="generateQRCode()" placeholder="Enter data for QR Code">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Größe (Pixel)</mat-label>
+          <input matInput type="number" [(ngModel)]="qrSize" (ngModelChange)="generateQRCode()">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fehlerkorrektur</mat-label>
+          <mat-select [(ngModel)]="errorCorrectionLevel" (ngModelChange)="generateQRCode()">
+            <mat-option matInput value="L">Low (7%)</mat-option>
+            <mat-option matInput value="M">Medium (15%)</mat-option>
+            <mat-option matInput value="Q">Quartile (25%)</mat-option>
+            <mat-option matInput value="H">High (30%)</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Vordergrund Farbe</mat-label>
+          <input matInput [(ngModel)]="colorDark" (ngModelChange)="generateQRCode()" [mtxColorpicker]="picker" format="hex">
+          <mtx-colorpicker-toggle matSuffix [for]="picker"></mtx-colorpicker-toggle>
+          <mtx-colorpicker #picker></mtx-colorpicker>
+          <!-- <mat-hint>Choose your favorite color</mat-hint>
+          <mat-error>Please enter the color</mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hintergrund Farbe</mat-label>
+          <input matInput [(ngModel)]="colorLight" (ngModelChange)="generateQRCode()" [mtxColorpicker]="picker" format="hex">
+          <mtx-colorpicker-toggle matSuffix [for]="picker"></mtx-colorpicker-toggle>
+          <mtx-colorpicker #picker></mtx-colorpicker>
+          <!-- <mat-hint>Choose your favorite color</mat-hint>
+          <mat-error>Please enter the color</mat-error> -->
+        </mat-form-field>
+
+        <p> Vorschau<br />
           <canvas #canvasElement></canvas>
-          <button type="button" (click)="downloadQRCode()" title="Los gehts">
-            <span class="ml-1">Download QR Code</span>
-          </button>
-    
-        </div>
+        </p>
+
       </mat-card-content>
-      <!-- <mat-card-actions>
-            <a mat-flat-button color="accent" href="https://forms.gle/3VNJ6qXhTFb2ay6t9" target="_blank">
-                <mat-icon aria-label="Anmeldung" svgIcon="loyalty"></mat-icon> Zur Anmeldung
-            </a>
-        </mat-card-actions> -->
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="downloadQRCode()" title="Los gehts">
+          <span class="ml-1">Download QR Code</span>
+        </button>
+      </mat-card-actions>
     </mat-card>
   </div>
 </main>
