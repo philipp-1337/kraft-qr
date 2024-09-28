@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/kraft-qr",
+    "public": "dist/kraft-qr/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
