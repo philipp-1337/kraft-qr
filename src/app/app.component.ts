@@ -7,14 +7,17 @@ import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
+import { IconsClass } from './icons.class';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule],
+  imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers: [IconsClass]
 })
 export class AppComponent implements AfterViewInit {
   title = 'kraft-qr';
@@ -27,6 +30,10 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChild('canvasElement', { static: false })
   canvasElement!: ElementRef<HTMLCanvasElement>;
+
+  constructor(
+    public icons: IconsClass,
+  ) {}
 
   ngAfterViewInit() {
     this.generateQRCode();  // Generate QR Code on component init

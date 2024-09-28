@@ -2,3 +2,91 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card {
+    margin: 16px 16px 0 16px;
+    opacity: 0.96;
+  
+    &:last-child {
+      margin: 16px;
+    }
+  }
+  
+  @media screen and (min-width: 720px) {
+    .card-container {
+      flex-direction: row;
+    }
+  
+    .card {
+      flex: 1;
+      margin: 16px 8px 16px 16px;
+      max-width: calc(50% - 24px);
+  
+      &:last-child {
+        margin: 16px 16px 16px 8px;
+      }
+  
+      &:only-child {
+        margin: 16px;
+        max-width: 100%;
+      }
+    }
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .mat-mdc-snack-bar-handset {
+    margin-bottom: env(safe-area-inset-bottom) !important;
+  }
+  
+  .bar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .icon-avatar {
+    align-self: center;
+    justify-content: center;
+  
+    * {
+      height: 40px !important;
+      width: 40px !important;
+    }
+  }
+  
+  .css-util {
+    &.text-align {
+      &.center {
+        text-align: center;
+      }
+    }
+  
+    &.m-32 {
+      margin: 32px
+    }
+  
+    &.ml-16 {
+      margin-left: 16px
+    }
+  
+    &.position {
+      position: absolute !important;
+  
+      &.center {
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+      }
+  
+      &.top-right {
+        right: 0 !important;
+        top: 0 !important;
+      }
+    }
+  }
