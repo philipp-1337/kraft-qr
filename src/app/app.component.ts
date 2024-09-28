@@ -1,13 +1,64 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import QRCode from 'qrcode';  // Importiere die QRCode-Bibliothek
+import { QRCodeErrorCorrectionLevel } from 'qrcode'; // Import the type from the 'qrcode' library
+import { FormsModule } from '@angular/forms'; // Import FormsModule
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'qr-code-generator';
+export class AppComponent implements AfterViewInit {
+  title = 'kraft-qr';
+  qrData: string = 'https://example.com';  // Default QR Code data
+  qrSize: number = 256;  // Default size
+  // Define errorCorrectionLevel with the specific type
+  errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
+  colorDark: string = '#000000';  // Default dark color
+  colorLight: string = '#ffffff00';  // Default light color
+
+  @ViewChild('canvasElement', { static: false })
+  canvasElement!: ElementRef<HTMLCanvasElement>;
+
+  constructor() { }
+
+  ngAfterViewInit() {
+    this.generateQRCode();  // Generate QR Code on component init
+  }
+
+  // Generate QR Code based on current inputs
+  generateQRCode() {
+    const canvas = this.canvasElement.nativeElement;
+
+    // Options for QR Code generation
+    const options = {
+      errorCorrectionLevel: this.errorCorrectionLevel,
+      width: this.qrSize,
+      color: {
+        dark: this.colorDark,
+        light: this.colorLight,
+      },
+    };
+
+    // Use the QRCode library to draw the QR code on the canvas
+    QRCode.toCanvas(canvas, this.qrData, options, (error) => {
+      if (error) console.error(error);
+      console.log('QR Code generated!');
+    });
+  }
+
+  // Download the QR Code as an image
+  downloadQRCode() {
+    const canvas = this.canvasElement.nativeElement;
+    const dataUrl = canvas.toDataURL('image/png');
+
+    const link = document.createElement('a');
+    link.href = dataUrl;
+    link.download = 'qr-code.png';
+    link.click();
+  }
 }
