@@ -17,7 +17,6 @@ import { IconsClass } from './icons.class';
   standalone: true,
   imports: [RouterOutlet, FormsModule, MatToolbarModule, MatIconModule, MatButtonModule, MatCardModule, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
   providers: [IconsClass]
 })
 export class AppComponent implements AfterViewInit {

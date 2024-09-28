@@ -3,6 +3,10 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.mat-toolbar {
+  background: var(--mdc-fab-container-color) !important;
+}
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -11,6 +15,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   .card {
     margin: 16px 16px 0 16px;
     opacity: 0.96;
+    border: solid 1px !important;
+
+    canvas {
+      max-width: 512px;
+      max-height: 512px;
+    }
   
     &:last-child {
       margin: 16px;
