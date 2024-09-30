@@ -7,32 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: var(--mdc-fab-container-color) !important;
 }
 
-.update-banner {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #ffb787;
-  color: black;
-  text-align: center;
-  padding: 1em;
-  box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
-}
-.update-banner p {
-  margin: 0;
-}
-.update-banner button {
-  margin-left: 10px;
-  padding: 0.5em;
-  border: none;
-  background-color: #004f4f;
-  color: white;
-  cursor: pointer;
-  border-radius: 3px;
-}
-.update-banner button:hover {
-  background-color: #004f4f;
-}
-
 .card-container {
     display: flex;
     flex-direction: column;
@@ -77,10 +51,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   mat-form-field {
     width: 100%;
   }
-
-  .mat-mdc-card-header-text {
-    margin-bottom: 16px; // Standardmäßig margin-bottom hinzufügen
-  }
   
   .mat-mdc-snack-bar-handset {
     margin-bottom: env(safe-area-inset-bottom) !important;
@@ -88,6 +58,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   .bar-spacer {
     flex: 1 1 auto;
+  }
+  
+  .mat-mdc-card-header-text {
+    margin-bottom: 16px;
   }
   
   .icon-avatar {
