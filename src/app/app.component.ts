@@ -1,8 +1,11 @@
-import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import QRCode from 'qrcode';  // Importiere die QRCode-Bibliothek
 import { QRCodeErrorCorrectionLevel } from 'qrcode'; // Import the type from the 'qrcode' library
 import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { filter } from 'rxjs/operators';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -31,14 +34,17 @@ import { IconsClass } from './icons.class';
     MatSelectModule,
     MatInputModule,
     MtxColorpickerModule,
-    NavbarComponent
+    NavbarComponent,
+    NgIf
   ],
   templateUrl: './app.component.html',
   providers: [IconsClass]
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
 
-  qrData = 'https://example.com';  // Default QR Code data
+  updateAvailable = false; // Flag für Banner
+
+  qrData = 'https://qr.changekraft.de';  // Default QR Code data
   qrSize = 512;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
@@ -50,7 +56,28 @@ export class AppComponent implements AfterViewInit {
 
   constructor(
     public icons: IconsClass,
+    private swUpdate: SwUpdate
   ) { }
+
+  ngOnInit(): void {
+    // Prüfe, ob der Service Worker aktiviert ist
+    if (this.swUpdate.isEnabled) {
+      // Abonniere das versionUpdates Observable
+      this.swUpdate.versionUpdates
+        .pipe(
+          filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY') // Filtere nach VERSION_READY Ereignissen
+        )
+        .subscribe(() => {
+          // Wenn ein Update gefunden wird, zeige das Banner an
+          this.updateAvailable = true;
+        });
+    }
+  }
+
+  // Funktion, um die Anwendung neu zu laden
+  reloadApp(): void {
+    window.location.reload();
+  }
 
   ngAfterViewInit() {
     this.generateQRCode();  // Generate QR Code on component init
