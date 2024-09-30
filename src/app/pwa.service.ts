@@ -16,7 +16,7 @@ export class PwaService {
   ) { }
 
   public initPwaPrompt() {
-    if (this.platform.ANDROID || this.platform.isBrowser) {
+    if (this.platform.ANDROID) {
       window.addEventListener('beforeinstallprompt', (event: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
         event.preventDefault();
         this.promptEvent = event;
