@@ -8,7 +8,7 @@ import { PromptComponent } from './prompt/prompt.component';
   providedIn: 'root'
 })
 export class PwaService {
-  private promptEvent: any;
+  private promptEvent: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   constructor(
     private bottomSheet: MatBottomSheet,
@@ -17,7 +17,7 @@ export class PwaService {
 
   public initPwaPrompt() {
     if (this.platform.ANDROID) {
-      window.addEventListener('beforeinstallprompt', (event: any) => {
+      window.addEventListener('beforeinstallprompt', (event: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
         event.preventDefault();
         this.promptEvent = event;
         this.openPromptComponent('android');

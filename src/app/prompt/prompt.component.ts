@@ -16,7 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 export class PromptComponent {
 
   constructor(
-    @Inject(MAT_BOTTOM_SHEET_DATA) public data: { mobileType: 'ios' | 'android', promptEvent?: any },
+    @Inject(MAT_BOTTOM_SHEET_DATA) public data: { mobileType: 'ios' | 'android', promptEvent?: any }, // eslint-disable-line @typescript-eslint/no-explicit-any
     private bottomSheetRef: MatBottomSheetRef<PromptComponent>
   ) {}
 
