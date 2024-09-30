@@ -1,0 +1,23 @@
+<mat-toolbar *ngIf="data.mobileType === 'android'" color="primary" class="android-prompt">
+    <button mat-button (click)="installPwa()">
+        App installieren
+    </button>
+    <button mat-icon-button (click)="close()" class="css-util position top-right">
+        <mat-icon svgIcon="close" color="warn"></mat-icon>
+    </button>
+</mat-toolbar>
+
+<div *ngIf="data.mobileType === 'ios'" class="ios-prompt">
+    <button mat-icon-button (click)="close()" class="css-util position top-right">
+        <mat-icon svgIcon="close" color="warn"></mat-icon>
+    </button>
+    <div class="css-util text-align center">
+        <p class="css-util m-32">
+            Um diese App auf deinem Gerät zu installieren, tippe auf das "Teilen"-Menü und dann auf "Zum
+            Home-Bildschirm".
+        </p>
+        <mat-icon svgIcon="ios_share"></mat-icon>
+        <mat-icon svgIcon="navigate_next" color="accent"></mat-icon>
+        <mat-icon svgIcon="add_box"></mat-icon>
+    </div>
+</div>

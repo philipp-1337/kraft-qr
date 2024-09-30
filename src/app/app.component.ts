@@ -15,11 +15,13 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'; // Importiere MatSnackBar
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 import { MtxColorpickerModule } from '@ng-matero/extensions/colorpicker';
 
 import { IconsClass } from './icons.class';
+import { PwaService } from './pwa.service';
 
 
 @Component({
@@ -36,6 +38,7 @@ import { IconsClass } from './icons.class';
     MatInputModule,
     MatSnackBarModule,
     MtxColorpickerModule,
+    MatBottomSheetModule,
     NavbarComponent,
     NgIf
   ],
@@ -57,11 +60,15 @@ export class AppComponent implements AfterViewInit, OnInit {
   constructor(
     public icons: IconsClass,
     private swUpdate: SwUpdate,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private pwaService: PwaService
 
   ) { }
 
   ngOnInit(): void {
+    // Initialisiere die PWA-Aufforderung
+    this.pwaService.initPwaPrompt();
+
     // Prüfe, ob der Service Worker aktiviert ist
     if (this.swUpdate.isEnabled) {
       // Abonniere das versionUpdates Observable
@@ -78,7 +85,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   // Zeige eine Snackbar, die auf ein Update hinweist
   showUpdateSnackBar(): void {
-    const snackBarRef = this.snackBar.open('Neue Version verfügbar!', 'Neu laden', {
+    const snackBarRef = this.snackBar.open('Es ist ein Update verfügbar.', 'Aktualisieren', {
       duration: 6000, // Zeigt die Snackbar für 6 Sekunden an
     });
 
