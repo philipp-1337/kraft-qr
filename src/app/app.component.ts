@@ -15,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar'; // Importiere MatSnackBar
 
 import { MtxColorpickerModule } from '@ng-matero/extensions/colorpicker';
 
@@ -33,6 +34,7 @@ import { IconsClass } from './icons.class';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
+    MatSnackBarModule,
     MtxColorpickerModule,
     NavbarComponent,
     NgIf
@@ -41,8 +43,6 @@ import { IconsClass } from './icons.class';
   providers: [IconsClass]
 })
 export class AppComponent implements AfterViewInit, OnInit {
-
-  updateAvailable = false; // Flag für Banner
 
   qrData = 'https://qr.changekraft.de';  // Default QR Code data
   qrSize = 512;  // Default size
@@ -56,7 +56,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   constructor(
     public icons: IconsClass,
-    private swUpdate: SwUpdate
+    private swUpdate: SwUpdate,
+    private snackBar: MatSnackBar
+
   ) { }
 
   ngOnInit(): void {
@@ -69,9 +71,21 @@ export class AppComponent implements AfterViewInit, OnInit {
         )
         .subscribe(() => {
           // Wenn ein Update gefunden wird, zeige das Banner an
-          this.updateAvailable = true;
+          this.showUpdateSnackBar();
         });
     }
+  }
+
+  // Zeige eine Snackbar, die auf ein Update hinweist
+  showUpdateSnackBar(): void {
+    const snackBarRef = this.snackBar.open('Neue Version verfügbar!', 'Neu laden', {
+      duration: 6000, // Zeigt die Snackbar für 6 Sekunden an
+    });
+
+    // Reagiere auf den Klick des Nutzers auf 'Neu laden'
+    snackBarRef.onAction().subscribe(() => {
+      this.reloadApp();
+    });
   }
 
   // Funktion, um die Anwendung neu zu laden
