@@ -49,7 +49,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
-  qrData = 'https://qr.changekraft.de';  // Default QR Code data
+  qrData = 'https://kraft-qr.web.app';  // Default QR Code data
   qrSize = 512;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
