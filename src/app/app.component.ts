@@ -50,7 +50,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 export class AppComponent implements AfterViewInit, OnInit {
 
   qrData = 'https://kraft-qr.web.app';  // Default QR Code data
-  qrSize = 512;  // Default size
+  qrSize = 360;  // Default size
   // Define errorCorrectionLevel with the specific type
   errorCorrectionLevel: QRCodeErrorCorrectionLevel = 'M';  // Default error correction level
   colorDark = '#ffb787';  // Default dark color

@@ -16,7 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   .card {
     margin: 16px 16px 0 16px;
-    opacity: 0.96;
+    // opacity: 0.96;
     border: solid 1px !important;
 
     canvas {
@@ -49,8 +49,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
       }
 
       canvas {
-        max-width: calc(50vw - 65px);
-        max-height: calc(50vw - 65px);
+        max-width: calc(50vw - 58px);
+        max-height: calc(50vw - 58px);
       }
     }
   }
@@ -124,6 +124,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   .bottom {
     --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    @media screen and (min-width: 720px) {
+      height: calc(64px + var(--safe-area-inset-bottom));
+    }
     height: calc(56px + var(--safe-area-inset-bottom));
     .mat-toolbar {
       .mat-mdc-fab {
