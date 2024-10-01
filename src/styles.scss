@@ -1,4 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -45,6 +47,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         margin: 16px;
         max-width: 100%;
       }
+
+      canvas {
+        max-width: calc(50vw - 65px);
+        max-height: calc(50vw - 65px);
+      }
     }
   }
   
@@ -54,6 +61,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   
   .mat-mdc-snack-bar-handset {
     margin-bottom: env(safe-area-inset-bottom) !important;
+  }
+
+  .mat-bottom-sheet-container {
+    overflow: hidden !important;
   }
   
   .bar-spacer {
@@ -108,5 +119,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         top: 50% !important;
         transform: translateY(-50%) !important; // Vertikal zentrieren
       }
+    }
+  }
+
+  .bottom {
+    --safe-area-inset-bottom: env(safe-area-inset-bottom);
+    height: calc(56px + var(--safe-area-inset-bottom));
+    .mat-toolbar {
+      .mat-mdc-fab {
+        position: relative;
+        bottom: 50%;
+      }
+      @include mat.elevation(1);
+      bottom: 0;
+      position: fixed;
+      top: unset !important;
+      --safe-area-inset-bottom: env(safe-area-inset-bottom);
+      height: calc(56px + var(--safe-area-inset-bottom));
+      z-index: 3;
     }
   }

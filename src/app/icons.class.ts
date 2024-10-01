@@ -120,6 +120,12 @@ export class IconsClass {
       )
     );
     iconRegistry.addSvgIcon(
+      'download',
+      sanitizer.bypassSecurityTrustResourceUrl(
+        'material-icons/svg/download_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg'
+      )
+    );
+    iconRegistry.addSvgIcon(
       'edit',
       sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-edit-24px.svg'

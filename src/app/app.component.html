@@ -6,22 +6,22 @@
         <!-- <div class="icon-avatar" mat-card-avatar>
           <mat-icon svgIcon="qr-code"></mat-icon>
         </div> -->
-        <mat-card-title>QR Code erstellen</mat-card-title>
-        <mat-card-subtitle>Keine Werbung | Kein Login | Kein Bullshit</mat-card-subtitle>
+        <mat-card-title>Create your QR Code</mat-card-title>
+        <mat-card-subtitle>No Ads | No Login | No Bullshit</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <mat-form-field>
-          <mat-label>QR Code Daten (Text, URL, etc)</mat-label>
+          <mat-label>QR Code Data (Text, URL, etc)</mat-label>
           <input matInput [(ngModel)]="qrData" (ngModelChange)="generateQRCode()" placeholder="Enter data for QR Code">
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Größe (Pixel)</mat-label>
+          <mat-label>Size (Pixel)</mat-label>
           <input matInput type="number" [(ngModel)]="qrSize" (ngModelChange)="generateQRCode()">
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Fehlerkorrektur</mat-label>
+          <mat-label>Error Correction Level</mat-label>
           <mat-select [(ngModel)]="errorCorrectionLevel" (ngModelChange)="generateQRCode()">
             <mat-option matInput value="L">Low (7%)</mat-option>
             <mat-option matInput value="M">Medium (15%)</mat-option>
@@ -31,7 +31,7 @@
         </mat-form-field>
         
         <mat-form-field>
-          <mat-label>Vordergrund Farbe</mat-label>
+          <mat-label>Foreground</mat-label>
           <input matInput [(ngModel)]="colorDark" (ngModelChange)="generateQRCode()" [mtxColorpicker]="pickerDark" format="hex">
           <mtx-colorpicker-toggle matSuffix [for]="pickerDark"></mtx-colorpicker-toggle>
           <mtx-colorpicker #pickerDark></mtx-colorpicker>
@@ -40,24 +40,70 @@
         </mat-form-field>
 
         <mat-form-field>
-          <mat-label>Hintergrund Farbe</mat-label>
+          <mat-label>Background</mat-label>
           <input matInput [(ngModel)]="colorLight" (ngModelChange)="generateQRCode()" [mtxColorpicker]="pickerLight" format="hex">
           <mtx-colorpicker-toggle matSuffix [for]="pickerLight"></mtx-colorpicker-toggle>
           <mtx-colorpicker #pickerLight></mtx-colorpicker>
           <!-- <mat-hint>Choose your favorite color</mat-hint>
           <mat-error>Please enter the color</mat-error> -->
         </mat-form-field>
-
-        <p> Vorschau<br />
-          <canvas #canvasElement></canvas>
-        </p>
-
       </mat-card-content>
-      <mat-card-actions>
+      <!-- <mat-card-actions>
         <button mat-raised-button color="primary" (click)="downloadQRCode()" title="Los gehts">
           <span class="ml-1">Download QR Code</span>
         </button>
-      </mat-card-actions>
+      </mat-card-actions> -->
+    </mat-card>
+    <mat-card class="card">
+      <mat-card-header>
+        <!-- <div class="icon-avatar" mat-card-avatar>
+          <mat-icon svgIcon="qr-code"></mat-icon>
+        </div> -->
+        <mat-card-title>Preview</mat-card-title>
+        <mat-card-subtitle>View your QR-Code before downloading it</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+          <canvas #canvasElement></canvas>
+      </mat-card-content>
+      <!-- <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="downloadQRCode()" title="Los gehts">
+          <span class="ml-1">Download QR Code</span>
+        </button>
+      </mat-card-actions> -->
     </mat-card>
   </div>
 </main>
+<nav class="bottom">
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <!-- <button mat-icon-button class="nav-item" routerLink="/admin/settings" routerLinkActive="active" disabled>
+        <mat-icon svgIcon="settings" class="nav-item-icon"></mat-icon>
+      </button>
+      <span class="bar-spacer"></span>
+      <button mat-icon-button class="nav-item" routerLink="/admin/tbc" routerLinkActive="active" disabled>
+        <mat-icon svgIcon="hotel" class="nav-item-icon"></mat-icon>
+      </button>
+      <span class="bar-spacer"></span> -->
+      <!-- <button mat-icon-button class="nav-item" title="Dashboard">
+        <mat-icon svgIcon="space_dashboard"
+          class="nav-item-icon"></mat-icon>
+      </button> -->
+      <!-- <span class="bar-spacer"></span>
+      <button mat-icon-button class="nav-item" routerLink="/admin/tbc" routerLinkActive="active" disabled>
+        <mat-icon svgIcon="commute" class="nav-item-icon"></mat-icon>
+      </button> -->
+      <span class="bar-spacer"></span>
+      <button
+        mat-fab
+        color="primary"
+        aria-label="Download QR Code"
+        (click)="downloadQRCode()">
+        <mat-icon svgIcon="download" class="mat-icon-overlay"></mat-icon>
+      </button>
+      <span class="bar-spacer"></span>
+      <!-- <button mat-icon-button routerLink="/login" title="Login">
+        <mat-icon aria-label="Login" svgIcon="login"></mat-icon>
+      </button> -->
+    </mat-toolbar-row>
+  </mat-toolbar>
+</nav>

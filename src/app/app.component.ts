@@ -22,6 +22,7 @@ import { MtxColorpickerModule } from '@ng-matero/extensions/colorpicker';
 
 import { IconsClass } from './icons.class';
 import { PwaService } from './pwa.service';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @Component({
@@ -37,8 +38,9 @@ import { PwaService } from './pwa.service';
     MatSelectModule,
     MatInputModule,
     MatSnackBarModule,
-    MtxColorpickerModule,
     MatBottomSheetModule,
+    MatToolbarModule,
+    MtxColorpickerModule,
     NavbarComponent,
     NgIf
   ],
@@ -129,10 +131,32 @@ export class AppComponent implements AfterViewInit, OnInit {
   downloadQRCode() {
     const canvas = this.canvasElement.nativeElement;
     const dataUrl = canvas.toDataURL('image/png');
-
+  
+    // Erstelle ein Blob aus dem Daten-URL
+    const byteString = atob(dataUrl.split(',')[1]);
+    const mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
+    const ab = new ArrayBuffer(byteString.length);
+    const ia = new Uint8Array(ab);
+    for (let i = 0; i < byteString.length; i++) {
+      ia[i] = byteString.charCodeAt(i);
+    }
+    const blob = new Blob([ab], { type: mimeString });
+  
+    // Erstelle eine URL für den Blob
+    const blobUrl = URL.createObjectURL(blob);
+  
+    // Erstelle den Link für die Anzeige
     const link = document.createElement('a');
-    link.href = dataUrl;
+    link.href = blobUrl;
     link.download = 'qr-code.png';
+    
+    // Zeige die PNG im selben Tab an
+    link.target = '_blank';
+    
+    // Klick simulieren
     link.click();
+  
+    // Blob-URL freigeben
+    URL.revokeObjectURL(blobUrl);
   }
 }
