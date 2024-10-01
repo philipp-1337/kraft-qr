@@ -87,7 +87,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   // Zeige eine Snackbar, die auf ein Update hinweist
   showUpdateSnackBar(): void {
-    const snackBarRef = this.snackBar.open('Es ist ein Update verfügbar.', 'Aktualisieren', {
+    const snackBarRef = this.snackBar.open('A new version is available.', 'Update', {
       duration: 17000, // Zeigt die Snackbar für 17 Sekunden an
     });
 
