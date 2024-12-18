@@ -1,6 +1,4 @@
 import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import QRCode from 'qrcode';  // Importiere die QRCode-Bibliothek
 import { QRCodeErrorCorrectionLevel } from 'qrcode'; // Import the type from the 'qrcode' library
 import { FormsModule } from '@angular/forms'; // Import FormsModule
@@ -29,7 +27,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
     FormsModule,
     MatIconModule,
     MatButtonModule,
@@ -41,8 +38,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatBottomSheetModule,
     MatToolbarModule,
     MtxColorpickerModule,
-    NavbarComponent,
-    NgIf
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   providers: [IconsClass]
