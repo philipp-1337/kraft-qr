@@ -1,27 +1,162 @@
-# QrCodeGenerator
+# 🎨 Kraft QR
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.6.
+**A modern, privacy-focused QR Code Generator** built as a Progressive Web App.
 
-## Development server
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://kraft-qr.web.app)
+[![Angular](https://img.shields.io/badge/Angular-18.2-red)](https://angular.io)
+[![License](https://img.shields.io/badge/license-private-blue)](#)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+> **No Ads | No Login | No Bullshit**
 
-## Code scaffolding
+## ✨ Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **🎯 Instant QR Code Generation** - Real-time preview as you type
+- **🎨 Full Customization**
+  - Custom foreground and background colors
+  - Adjustable size (pixels)
+  - Variable error correction levels (L, M, Q, H)
+- **📱 Progressive Web App**
+  - Installable on iOS and Android
+  - Works offline with Service Worker
+  - Automatic update notifications
+- **🚀 Fast & Lightweight** - Built with Angular 18 and Material Design
+- **🔒 Privacy First** - No tracking, no data collection, everything runs client-side
+- **💾 Easy Download** - One-click download as PNG
 
-## Build
+## 🛠️ Tech Stack
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Framework:** Angular 18.2
+- **UI Library:** Angular Material 18.2
+- **QR Generation:** [qrcode](https://www.npmjs.com/package/qrcode) library
+- **Color Picker:** [@ng-matero/extensions](https://www.npmjs.com/package/@ng-matero/extensions)
+- **PWA:** Angular Service Worker
+- **Hosting:** Firebase Hosting
+- **Database:** Firestore (configured)
 
-## Running unit tests
+## 🚀 Getting Started
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Prerequisites
 
-## Running end-to-end tests
+- Node.js (v18 or higher recommended)
+- npm or yarn
+- Angular CLI 18.2.6
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Installation
 
-## Further help
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd kraft-qr
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Install dependencies
+npm install
+```
+
+### Development Server
+
+```bash
+npm start
+# or
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The application will automatically reload when you change source files.
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+Build artifacts will be stored in the `dist/kraft-qr/browser/` directory.
+
+## 📋 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start development server on `http://localhost:4200` |
+| `npm run build` | Build the project for production |
+| `npm run watch` | Build in watch mode for development |
+| `npm test` | Run unit tests via Karma |
+| `npm run lint` | Lint the codebase with ESLint |
+
+## 🏗️ Project Structure
+
+```bash
+kraft-qr/
+├── src/
+│   ├── app/
+│   │   ├── navbar/           # Navigation component
+│   │   ├── prompt/           # PWA install prompt
+│   │   ├── app.component.ts  # Main QR generator logic
+│   │   ├── pwa.service.ts    # PWA installation handling
+│   │   └── icons.class.ts    # Material icons configuration
+│   ├── assets/
+│   │   ├── icons/            # PWA icons
+│   │   └── manifest.webmanifest
+│   └── styles.scss           # Global styles
+├── firebase.json             # Firebase hosting config
+├── firestore.rules           # Firestore security rules
+└── ngsw-config.json          # Service Worker configuration
+```
+
+## 🎨 Customization Options
+
+The QR Code can be customized with:
+
+- **Data:** Any text, URL, or data string
+- **Size:** Custom pixel dimensions
+- **Error Correction Levels:**
+  - L (Low) - 7% damage resistance
+  - M (Medium) - 15% damage resistance
+  - Q (Quartile) - 25% damage resistance
+  - H (High) - 30% damage resistance
+- **Colors:** Custom foreground and background colors via color picker
+
+## 📱 PWA Features
+
+- **Installable** on mobile devices (iOS/Android) and desktop
+- **Offline functionality** with Service Worker
+- **Auto-update prompts** when new versions are available
+- **Platform-specific install prompts** for iOS and Android
+
+## 🧪 Testing
+
+```bash
+# Run unit tests
+npm test
+
+# Run tests in headless mode
+ng test --browsers=ChromeHeadless --watch=false
+```
+
+## 🚢 Deployment
+
+The app is configured for Firebase Hosting:
+
+```bash
+# Build for production
+npm run build
+
+# Deploy to Firebase (requires Firebase CLI)
+firebase deploy
+```
+
+## 📄 License
+
+This project is private. All rights reserved.
+
+## 🤝 Contributing
+
+This is a private project. If you'd like to contribute, please contact the project owner.
+
+## 🙏 Acknowledgments
+
+- Built with [Angular](https://angular.io)
+- UI components by [Angular Material](https://material.angular.io)
+- QR Code generation by [node-qrcode](https://github.com/soldair/node-qrcode)
+- Color picker from [@ng-matero/extensions](https://github.com/ng-matero/extensions)
+
+---
+
+**Made with ❤️ using Angular**
