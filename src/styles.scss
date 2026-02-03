@@ -80,10 +80,10 @@ body {
 }
 
 .preview-surface {
-  display: grid;
+  // display: grid;
   place-items: center;
-  padding: 16px;
-  border-radius: 14px;
+  padding: 16px !important;
+  // border-radius: 14px;
   // width: 100%;
   // max-width: min(100%, 320px);
   aspect-ratio: 1 / 1;
@@ -109,11 +109,6 @@ body {
   .card {
     flex: 1;
     max-width: calc(50% - 8px);
-  }
-
-  .preview-surface {
-    width: 100%;
-    max-width: min(100%, 520px);
   }
 }
 
