@@ -2,143 +2,241 @@
 
 @include mat.core();
 
+:root {
+  --bg: #0b1212;
+  --bg-2: #0f1c1c;
+  --surface: #111b1b;
+  --surface-2: #152222;
+  --text: #e7f1f0;
+  --muted: #a2b6b4;
+  --accent: #33d4a2;
+  --accent-2: #1fa584;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 10% -20%, rgba(51, 212, 162, 0.15), transparent 60%),
+    radial-gradient(900px 700px at 90% 10%, rgba(23, 119, 109, 0.2), transparent 55%),
+    linear-gradient(180deg, var(--bg), var(--bg-2));
+  background-attachment: fixed;
+}
+
+.page {
+  padding: 24px 16px 110px;
+}
 
 .mat-toolbar {
-  background: var(--mdc-fab-container-color) !important;
+  background: rgba(17, 27, 27, 0.95) !important;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.brand {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  margin-left: 6px;
+}
+
+.mat-mdc-card {
+  background: linear-gradient(180deg, var(--surface), var(--surface-2));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  animation: card-rise 520ms ease-out;
 }
 
 .card-container {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .card {
-    margin: 16px 16px 0 16px;
-    // opacity: 0.96;
-    border: solid 1px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-    canvas {
-      max-width: calc(100vw - 65px);
-      max-height: calc(100vw - 65px);
-    }
-  
-    &:last-child {
-      margin: 16px;
-    }
-  }
-  
-  @media screen and (min-width: 720px) {
-    .card-container {
-      flex-direction: row;
-    }
-  
-    .card {
-      flex: 1;
-      margin: 16px 8px 16px 16px;
-      max-width: calc(50% - 24px);
-  
-      &:last-child {
-        margin: 16px 16px 16px 8px;
-      }
-  
-      &:only-child {
-        margin: 16px;
-        max-width: 100%;
-      }
+.card {
+  margin: 0;
 
-      canvas {
-        max-width: calc(50vw - 58px);
-        max-height: calc(50vw - 58px);
-      }
-    }
-  }
-  
-  mat-form-field {
+  canvas {
     width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    image-rendering: crisp-edges;
   }
-  
-  .mat-mdc-snack-bar-handset {
-    margin-bottom: env(safe-area-inset-bottom) !important;
+}
+
+.card-form .mat-mdc-card-content {
+  display: grid;
+  gap: 12px;
+}
+
+.preview-surface {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border-radius: 14px;
+  // width: 100%;
+  // max-width: min(100%, 320px);
+  aspect-ratio: 1 / 1;
+  background:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%),
+    linear-gradient(45deg, rgba(255, 255, 255, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 255, 255, 0.05) 75%);
+  background-size: 18px 18px;
+  background-position: 0 0, 9px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+
+@media screen and (min-width: 720px) {
+  .page {
+    padding: 36px 40px 140px;
   }
 
-  .mat-bottom-sheet-container {
-    overflow: hidden !important;
+  .card-container {
+    flex-direction: row;
+    align-items: stretch;
   }
-  
-  .bar-spacer {
-    flex: 1 1 auto;
+
+  .card {
+    flex: 1;
+    max-width: calc(50% - 8px);
   }
-  
-  .mat-mdc-card-header-text {
-    margin-bottom: 16px;
+
+  .preview-surface {
+    width: 100%;
+    max-width: min(100%, 520px);
   }
-  
-  .icon-avatar {
-    align-self: center;
-    justify-content: center;
-  
-    * {
-      height: 40px !important;
-      width: 40px !important;
-    }
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.mat-mdc-form-field {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+}
+
+.mat-mdc-card-title {
+  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.2px;
+}
+
+.mat-mdc-card-subtitle {
+  color: var(--muted);
+}
+
+.mat-mdc-snack-bar-handset {
+  margin-bottom: env(safe-area-inset-bottom) !important;
+}
+
+.mat-bottom-sheet-container {
+  overflow: hidden !important;
+}
+
+.bar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-mdc-card-header-text {
+  margin-bottom: 12px;
+}
+
+.icon-avatar {
+  align-self: center;
+  justify-content: center;
+
+  * {
+    height: 40px !important;
+    width: 40px !important;
   }
-  
-  .css-util {
-    &.text-align {
-      &.center {
-        text-align: center;
-      }
-    }
-  
-    &.m-32 {
-      margin: 32px
-    }
-  
-    &.ml-16 {
-      margin-left: 16px
-    }
-  
-    &.position {
-      position: absolute !important;
-  
-      &.center {
-        left: 50% !important;
-        top: 50% !important;
-        transform: translate(-50%, -50%) !important;
-      }
-  
-      &.top-right {
-        right: 0 !important;
-        top: 0 !important;
-      }
-      
-      &.center-right { // Neue Klasse
-        right: 0 !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important; // Vertikal zentrieren
-      }
+}
+
+.css-util {
+  &.text-align {
+    &.center {
+      text-align: center;
     }
   }
 
-  .bottom {
+  &.m-32 {
+    margin: 32px
+  }
+
+  &.ml-16 {
+    margin-left: 16px
+  }
+
+  &.position {
+    position: absolute !important;
+
+    &.center {
+      left: 50% !important;
+      top: 50% !important;
+      transform: translate(-50%, -50%) !important;
+    }
+
+    &.top-right {
+      right: 0 !important;
+      top: 0 !important;
+    }
+
+    &.center-right { // Neue Klasse
+      right: 0 !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important; // Vertikal zentrieren
+    }
+  }
+}
+
+.bottom {
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  height: calc(56px + var(--safe-area-inset-bottom));
+
+  @media screen and (min-width: 720px) {
+    height: calc(64px + var(--safe-area-inset-bottom));
+  }
+
+  .mat-toolbar {
+    @include mat.elevation(2);
+    bottom: 0;
+    position: fixed;
+    top: unset !important;
     --safe-area-inset-bottom: env(safe-area-inset-bottom);
-    @media screen and (min-width: 720px) {
-      height: calc(64px + var(--safe-area-inset-bottom));
-    }
     height: calc(56px + var(--safe-area-inset-bottom));
-    .mat-toolbar {
-      .mat-mdc-fab {
-        position: relative;
-        bottom: 50%;
-      }
-      @include mat.elevation(1);
-      bottom: 0;
-      position: fixed;
-      top: unset !important;
-      --safe-area-inset-bottom: env(safe-area-inset-bottom);
-      height: calc(56px + var(--safe-area-inset-bottom));
-      z-index: 3;
+    z-index: 3;
+
+    .mat-mdc-fab {
+      position: relative;
+      bottom: 50%;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
     }
   }
+}
+
+@keyframes card-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mat-mdc-card {
+    animation: none;
+  }
+}

@@ -38,7 +38,10 @@
 ### Prerequisites
 
 - Node.js (v18 or higher recommended)
-- npm or yarn
+- Bun (install if needed):
+  ```bash
+  curl -fsSL https://bun.sh/install | bash
+  ```
 - Angular CLI 18.2.6
 
 ### Installation
@@ -49,13 +52,13 @@ git clone <your-repo-url>
 cd kraft-qr
 
 # Install dependencies
-npm install
+bun install
 ```
 
 ### Development Server
 
 ```bash
-npm start
+bun run start
 # or
 ng serve
 ```
@@ -65,7 +68,7 @@ Navigate to `http://localhost:4200/`. The application will automatically reload 
 ### Build for Production
 
 ```bash
-npm run build
+bun run build
 ```
 
 Build artifacts will be stored in the `dist/kraft-qr/browser/` directory.
@@ -74,11 +77,11 @@ Build artifacts will be stored in the `dist/kraft-qr/browser/` directory.
 
 | Command | Description |
 |---------|-------------|
-| `npm start` | Start development server on `http://localhost:4200` |
-| `npm run build` | Build the project for production |
-| `npm run watch` | Build in watch mode for development |
-| `npm test` | Run unit tests via Karma |
-| `npm run lint` | Lint the codebase with ESLint |
+| `bun run start` | Start development server on `http://localhost:4200` |
+| `bun run build` | Build the project for production |
+| `bun run watch` | Build in watch mode for development |
+| `bun run test` | Run unit tests via Karma |
+| `bun run lint` | Lint the codebase with ESLint |
 
 ## 🏗️ Project Structure
 
@@ -124,7 +127,7 @@ The QR Code can be customized with:
 
 ```bash
 # Run unit tests
-npm test
+bun run test
 
 # Run tests in headless mode
 ng test --browsers=ChromeHeadless --watch=false
@@ -136,7 +139,7 @@ The app is configured for Firebase Hosting:
 
 ```bash
 # Build for production
-npm run build
+bun run build
 
 # Deploy to Firebase (requires Firebase CLI)
 firebase deploy
