@@ -30,7 +30,7 @@ body {
 }
 
 .page {
-  padding: 24px 16px 110px;
+  padding: 24px 16px 24px;
 }
 
 .mat-toolbar {
@@ -63,6 +63,7 @@ body {
 
 .card {
   margin: 0;
+  max-width: calc(100vw - 32px);
 
   canvas {
     width: 100%;
