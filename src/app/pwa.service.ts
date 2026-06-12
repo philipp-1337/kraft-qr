@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { take, timer } from 'rxjs';
@@ -8,12 +8,10 @@ import { PromptComponent } from './prompt/prompt.component';
   providedIn: 'root'
 })
 export class PwaService {
-  private promptEvent: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+  private bottomSheet = inject(MatBottomSheet);
+  private platform = inject(Platform);
 
-  constructor(
-    private bottomSheet: MatBottomSheet,
-    private platform: Platform
-  ) { }
+  private promptEvent: any; // eslint-disable-line @typescript-eslint/no-explicit-any
 
   public initPwaPrompt() {
     if (this.platform.ANDROID) {

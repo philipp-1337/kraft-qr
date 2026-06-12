@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, AfterViewInit, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, OnInit, ChangeDetectionStrategy, inject } from '@angular/core';
 import QRCode from 'qrcode';  // Importiere die QRCode-Bibliothek
 import { QRCodeErrorCorrectionLevel } from 'qrcode'; // Import the type from the 'qrcode' library
 import { FormsModule } from '@angular/forms'; // Import FormsModule
@@ -24,26 +24,31 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [
-    FormsModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    MatInputModule,
-    MatSnackBarModule,
-    MatBottomSheetModule,
-    MatToolbarModule,
-    MtxColorpickerModule,
-    NavbarComponent
-  ],
-  templateUrl: './app.component.html',
-  providers: [IconsClass]
+    selector: 'app-root',
+    imports: [
+        FormsModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        MatInputModule,
+        MatSnackBarModule,
+        MatBottomSheetModule,
+        MatToolbarModule,
+        MtxColorpickerModule,
+        NavbarComponent
+    ],
+    templateUrl: './app.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [IconsClass]
 })
 export class AppComponent implements AfterViewInit, OnInit {
+  icons = inject(IconsClass);
+  private swUpdate = inject(SwUpdate);
+  private snackBar = inject(MatSnackBar);
+  private pwaService = inject(PwaService);
+
 
   qrData = 'https://kraft-qr.web.app';  // Default QR Code data
   qrSize = 360;  // Default size
@@ -54,14 +59,6 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   @ViewChild('canvasElement', { static: false })
   canvasElement!: ElementRef<HTMLCanvasElement>;
-
-  constructor(
-    public icons: IconsClass,
-    private swUpdate: SwUpdate,
-    private snackBar: MatSnackBar,
-    private pwaService: PwaService
-
-  ) { }
 
   ngOnInit(): void {
     // Initialisiere die PWA-Aufforderung

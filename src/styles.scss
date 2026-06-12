@@ -1,6 +1,20 @@
 @use '@angular/material' as mat;
 
-@include mat.core();
+// Define custom typography
+$font-stack: '"IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+$custom-typography: mat.m2-define-typography-config(
+  $font-family: $font-stack,
+  $headline-1: mat.m2-define-typography-level(112px, 112px, 300, $font-family: '"Space Grotesk", ' + $font-stack),
+  $headline-2: mat.m2-define-typography-level(56px, 56px, 400, $font-family: '"Space Grotesk", ' + $font-stack),
+  $headline-3: mat.m2-define-typography-level(45px, 48px, 400, $font-family: '"Space Grotesk", ' + $font-stack),
+  $headline-4: mat.m2-define-typography-level(34px, 40px, 400, $font-family: '"Space Grotesk", ' + $font-stack),
+  $headline-5: mat.m2-define-typography-level(24px, 32px, 400, $font-family: '"Space Grotesk", ' + $font-stack),
+  $headline-6: mat.m2-define-typography-level(20px, 32px, 500, $font-family: '"Space Grotesk", ' + $font-stack),
+);
+
+@include mat.elevation-classes();
+@include mat.app-background();
+@include mat.all-component-typographies($custom-typography);
 
 :root {
   --bg: #0b1212;
@@ -20,7 +34,7 @@ html, body { height: 100%; }
 *, *::before, *::after { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  font-family: #{$font-stack};
   color: var(--text);
   background:
     radial-gradient(1200px 700px at 10% -20%, rgba(51, 212, 162, 0.15), transparent 60%),
@@ -41,7 +55,7 @@ body {
 }
 
 .brand {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-family: "Space Grotesk", #{$font-stack};
   font-weight: 600;
   letter-spacing: 0.4px;
   margin-left: 6px;
@@ -107,7 +121,7 @@ mat-form-field {
 }
 
 .mat-mdc-card-title {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  font-family: "Space Grotesk", #{$font-stack};
   font-size: 1.4rem;
   letter-spacing: 0.2px;
 }

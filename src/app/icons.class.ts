@@ -1,343 +1,346 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 
 @Injectable()
 export class IconsClass {
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-    iconRegistry.addSvgIcon(
+  private iconRegistry = inject(MatIconRegistry);
+  private sanitizer = inject(DomSanitizer);
+
+  constructor() {
+    this.iconRegistry.addSvgIcon(
       'account_circle',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-account_circle-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'add_circle',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/add_circle_outline-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'add',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/add_black_24dp.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'add_box',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/add_box_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'arrow_back',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/arrow_back-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'arrow_forward',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/arrow_forward-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'autorenew',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-autorenew-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'block',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-block-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'calendar',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/calendar_add_on_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'cake',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/cake_24dp_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'check',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-check-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'account_circle_outline',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/outline-account_circle-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'clock',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/schedule_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'clock_off',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/history_toggle_off_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'close',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/close_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'commute',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-commute-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'dark_mode',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/dark_mode_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'delete',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-delete_forever-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'directions',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-directions-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'download',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/download_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'edit',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-edit-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'email',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-email-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'event',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-event_note-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'gift',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/gift_24dp_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'heart',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/favorite_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'home',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-home-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'hotel',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-hotel-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'invitation',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-insert_invitation-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'ios_share',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/ios_share_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'light_mode',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/light_mode_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'local_dining',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-local_dining-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'location_on',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-location_on-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'lock_open',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-lock_open-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'lock',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-lock-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'login',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/login_FILL0_wght400_GRAD-25_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'logo',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/celebration_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'logout',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/logout_FILL0_wght400_GRAD-25_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'loyalty',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-loyalty-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'menu',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-menu-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'more_vert',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-more_vert-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'navigate_next',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/navigate_next_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'password',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/password_black_24dp.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'qr-code',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/qr_code_2_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'save',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-save-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'settings',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/settings-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'share',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/share-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'space_dashboard',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/space_dashboard_black_24dp.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'space_dashboard_outlined',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/space_dashboard_FILL0_wght400_GRAD-25_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'supervisor_account',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-supervisor_account-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'supervisor_account_outline',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/outline-supervisor_account-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'support',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/support_24dp_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'task',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/task_alt_24dp_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'timeline',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/timeline_24dp_FILL0_wght400_GRAD0_opsz24.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'upload',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/upload_FILL0_wght400_GRAD0_opsz48.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'visibility_off',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-visibility_off-24px.svg'
       )
     );
-    iconRegistry.addSvgIcon(
+    this.iconRegistry.addSvgIcon(
       'visibility',
-      sanitizer.bypassSecurityTrustResourceUrl(
+      this.sanitizer.bypassSecurityTrustResourceUrl(
         'material-icons/svg/baseline-visibility-24px.svg'
       )
     );

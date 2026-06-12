@@ -1,22 +1,26 @@
-<div *ngIf="data.mobileType === 'android'" class="android-prompt">
+@if (data.mobileType === 'android') {
+  <div class="android-prompt">
     <button mat-button (click)="installPwa()">
-        Install Kraft QR
+      Install Kraft QR
     </button>
     <button mat-icon-button (click)="close()" class="css-util position center-right">
-        <mat-icon svgIcon="close" color="warn"></mat-icon>
+      <mat-icon svgIcon="close" color="warn"></mat-icon>
     </button>
-</div>
+  </div>
+}
 
-<div *ngIf="data.mobileType === 'ios'" class="ios-prompt">
+@if (data.mobileType === 'ios') {
+  <div class="ios-prompt">
     <button mat-icon-button (click)="close()" class="css-util position top-right">
-        <mat-icon svgIcon="close" color="warn"></mat-icon>
+      <mat-icon svgIcon="close" color="warn"></mat-icon>
     </button>
     <div class="css-util text-align center">
-        <p class="css-util m-32">
-            To install this app on your iOS device, tap on the "Share" menu and then on "Add to Home Screen".
-        </p>
-        <mat-icon svgIcon="ios_share"></mat-icon>
-        <mat-icon svgIcon="navigate_next" color="accent"></mat-icon>
-        <mat-icon svgIcon="add_box"></mat-icon>
+      <p class="css-util m-32">
+        To install this app on your iOS device, tap on the "Share" menu and then on "Add to Home Screen".
+      </p>
+      <mat-icon svgIcon="ios_share"></mat-icon>
+      <mat-icon svgIcon="navigate_next" color="accent"></mat-icon>
+      <mat-icon svgIcon="add_box"></mat-icon>
     </div>
-</div>
+  </div>
+}
